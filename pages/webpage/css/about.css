@@ -1,0 +1,76 @@
+.about {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.section-title {
+  width: 360px;
+  font-size: var(--h2-pc);
+  font-family: 'GCEpicPro', sans-serif;
+  margin-bottom: 1rem;
+  text-align: left;
+  /* border: 1px solid black; */
+  line-height: 0.8;
+
+}
+
+.title-logo {
+  display: block;
+  font-style: italic;
+}
+
+
+.text1-box {
+  width: 400px;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  position: absolute;
+  margin-top: 250px;
+  font-family: "Aileron", sans-serif;
+  /* border: 1px solid black; */
+}
+
+.text1-box p {
+  width: 100%;
+  text-align: left;
+  letter-spacing: 1px;
+  font-size: var(--normal);
+  color: var(--black);
+  line-height: 1.3rem;
+  margin: 0;
+
+}
+
+.mini-logo {
+  font-family: "GCEpicPro", sans-serif;
+  font-style: italic;
+  letter-spacing: normal;
+}
+
+.text2-box {
+  width: 400px;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  position: absolute;
+  margin-top: 250px;
+  font-family: "Aileron", sans-serif;
+  /* border: 1px solid black; */
+  right: 2rem;
+}
+
+.text2-box p {
+  width: 100%;
+  text-align: right;
+  letter-spacing: 1px;
+  font-size: var(--normal);
+  color: var(--black);
+  line-height: 1.3rem;
+  margin: 0;
+
+}

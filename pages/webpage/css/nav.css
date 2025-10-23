@@ -1,0 +1,535 @@
+/* ===================== NAVBAR ===================== */
+.navbar {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease;
+  /* animation: fadeDown 1.2s ease forwards; */
+  opacity: 0;
+
+
+}
+
+
+
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  /* border: 1px solid #333; */
+}
+
+/* === Logo === */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'GCEpicPro', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 1101;
+  color: var(--black);
+}
+
+.nav-logo img {
+  height: 40px;
+  width: auto;
+}
+
+/* Smooth logo text color transition */
+.nav-logo span {
+  color: var(--black);
+  transition: color 0.4s;
+}
+
+.navbar.active .nav-logo span {
+  color: var(--white);
+}
+
+/* === Nav Links === */
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex: 1;
+}
+
+.nav-links a {
+  font-family: 'Aileron', sans-serif;
+  font-size: var(--normal);
+  font-weight: 500;
+  color: var(--black);
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--blue);
+}
+
+/* === Right Side === */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* === Signup Button === */
+.signup-btn {
+  --arrow-width: 10px;
+  --arrow-stroke: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  font-family: 'Aileron', sans-serif;
+  font-weight: 500;
+  font-size: var(--normal);
+  color: var(--white);
+  background: var(--black);
+  border: none;
+  border-radius: 9999px;
+  height: 2.5rem;
+  padding: 0 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  box-sizing: border-box;
+}
+
+.signup-btn .arrow-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-btn .arrow {
+  width: var(--arrow-width);
+  height: var(--arrow-stroke);
+  background: var(--black);
+  position: relative;
+  transition: 0.2s;
+}
+
+.signup-btn .arrow::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: 3px;
+  border: solid var(--white);
+  border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  transition: right 0.2s;
+}
+
+.signup-btn:hover {
+  background-color: var(--blue);
+}
+
+.signup-btn:active {
+  opacity: 0.5;
+}
+
+.signup-btn:hover .arrow {
+  background: var(--white);
+}
+
+.signup-btn:hover .arrow::before {
+  right: 0;
+}
+
+/* === Login Link === */
+.login-link {
+  font-family: 'Aileron', sans-serif;
+  font-size: var(--normal);
+  font-weight: 500;
+  color: var(--black);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login-link:hover {
+  color: var(--blue);
+}
+
+/* ---------- Animated Hamburger Transition (replaces simple hamburger rules) ---------- */
+/* base hamburger layout */
+.hamburger {
+  margin-bottom: 6px;
+  position: relative;
+  width: 28px;
+  height: 20px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--black);
+  display: none;
+  /* shown via media query */
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  transition: color 0.4s;
+}
+
+/* hide lucide icon if present */
+.hamburger svg,
+.hamburger i {
+  display: none !important;
+}
+
+/* the three bars: top (::before), middle (.bar), bottom (::after) */
+.hamburger::before,
+.hamburger::after,
+.hamburger .bar {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: currentColor;
+  border-radius: 25px;
+  transition: top ease-out 0.15s 0.15s, transform ease-out 0.15s 0s, opacity 0.12s ease;
+}
+
+/* positions */
+.hamburger::before {
+  top: 0;
+}
+
+.hamburger .bar {
+  top: 9px;
+}
+
+.hamburger::after {
+  top: 18px;
+}
+
+/* Active state -> form an X */
+.hamburger.active::before {
+  top: 9px;
+  transform: rotate(45deg);
+  transition: top ease-out 0.15s, transform ease-out 0.15s 0.15s;
+}
+
+.hamburger.active .bar {
+  opacity: 0;
+  transform: scaleX(0.8);
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+
+.hamburger.active::after {
+  top: 9px;
+  transform: rotate(-45deg);
+  transition: top ease-out 0.15s, transform ease-out 0.15s 0.15s;
+}
+
+.hamburger.active {
+  color: var(--white);
+}
+
+.hamburger:hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 50%;
+}
+
+/* === Animated Background Fill === */
+.pt-navbar-fill {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 900;
+  transform: scaleY(0);
+  transform-origin: top center;
+  background: #000;
+  pointer-events: none;
+  transition: transform 1s cubic-bezier(.16, 1, .3, 1);
+}
+
+.navbar.active .pt-navbar-fill {
+  transform: scaleY(1);
+  pointer-events: auto;
+}
+
+/* === Tablet Login Button (new) === */
+.tablet-buttons {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.tablet-login {
+  display: none;
+  font-family: 'Aileron', sans-serif;
+  font-weight: 500;
+  font-size: var(--normal);
+  color: var(--white);
+  background: var(--black);
+  border: 2px solid var(--white);
+  border-radius: 9999px;
+  padding: 0.6rem 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.tablet-login:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+.tablet-signup {
+  width: fit-content;
+}
+
+
+/* ===================== TABLET & MOBILE ===================== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  /* Hide desktop login/signup in tablet */
+  .nav-right .login-link,
+  .nav-right .signup-btn {
+    display: none !important;
+  }
+
+  .nav-links {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    /* smooth scrolling on iOS */
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+    padding-bottom: 2rem;
+  }
+
+  /* Optional: style the scrollbar for Chrome, Edge, Safari */
+  .nav-links::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .nav-links::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 3px;
+  }
+
+  .nav-links::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Nav links panel */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* Aligns with logo */
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Start from top */
+    align-items: flex-start;
+    /* Align to left */
+    text-align: left;
+    padding-top: 6rem;
+    /* Adjust spacing below logo */
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+    color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s 0s, visibility 0s 0.6s;
+    z-index: 1000;
+  }
+
+  .nav-links.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s, 0s;
+  }
+
+  .nav-links a:not(.tablet-login) {
+    color: var(--white);
+    font-size: 1.6rem;
+    opacity: 0;
+    transform: translateY(20px);
+    margin-left: 2.5rem;
+    /* Matches logo spacing */
+    text-align: left;
+    width: 100%;
+  }
+
+  .nav-links a:not(.tablet-login):hover {
+    transform: scale(1.1);
+    font-weight: bold;
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+  }
+
+  /* Apply fadeInUp only to anchor links (not buttons) */
+  .nav-links.show a {
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .nav-links.show a:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+
+  .nav-links.show a:nth-child(2) {
+    animation-delay: 0.35s;
+  }
+
+  .nav-links.show a:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+
+  .nav-links.show a:nth-child(4) {
+    animation-delay: 0.65s;
+  }
+
+  /* === Tablet Buttons Row === */
+  .tablet-buttons {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    /* Same left spacing as links */
+    width: 100%;
+    opacity: 0;
+    transform: translateX(-40px);
+    text-align: left;
+  }
+
+  /* Only Fade In Left Animation (No Fade Up) */
+  .nav-links.show .tablet-buttons {
+    animation: fadeInLeft 0.6s ease forwards;
+    animation-delay: 0.9s;
+  }
+
+  /* === Tablet Login Button === */
+  .tablet-login {
+    display: inline-block !important;
+    font-family: 'Aileron', sans-serif;
+    font-weight: 600 !important;
+    font-size: var(--normal);
+    color: var(--white) !important;
+    background: transparent;
+    border: 2px solid var(--white);
+    border-radius: 9999px;
+    padding: 0.6rem 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-left: 2.5rem;
+  }
+
+  .tablet-login:hover {
+    background: var(--white);
+    color: var(--black) !important;
+  }
+
+
+  /* === Tablet Signup Button === */
+  .tablet-signup {
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45em;
+    font-family: 'Aileron', sans-serif;
+    font-weight: 600;
+    font-size: var(--normal);
+    color: var(--black);
+    background: var(--white);
+    border: none;
+    border-radius: 9999px;
+    height: 2.5rem;
+    padding: 0 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .tablet-signup .arrow-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tablet-signup .arrow {
+    width: var(--arrow-width);
+    height: var(--arrow-stroke);
+    background: var(--white);
+    position: relative;
+    transition: 0.2s;
+  }
+
+  .tablet-signup .arrow::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    right: 3px;
+    border: solid var(--black);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    transition: right 0.2s;
+  }
+
+  .tablet-signup:hover {
+    background-color: var(--blue);
+    color: var(--white);
+  }
+
+  .tablet-signup:hover .arrow {
+    background: var(--white);
+
+  }
+
+  .tablet-signup:hover .arrow::before {
+    right: 0;
+    border-color: var(--white);
+  }
+
+
+  .nav-logo {
+    position: relative;
+    z-index: 1001;
+  }
+
+  .navbar.active .hamburger {
+    color: var(--white);
+  }
+}
+
+/* hover in the navlinks*/
+/* clean up */

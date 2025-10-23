@@ -1,0 +1,156 @@
+/* ===================== INTRO / SPLASH ===================== */
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+/* ===================== PILLARS BACKGROUND ===================== */
+.pillars {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  z-index: 1;
+}
+
+/* Each pillar forms part of the intro background */
+.pillar {
+  background: var(--black);
+  transform: translateY(0);
+}
+
+/* Pillars move up one by one when exiting */
+.intro-screen.fade-out .pillar {
+  animation: pillarExit 1s ease-in forwards;
+  animation-delay: 1s;
+
+}
+
+.intro-screen.fade-out .pillar.p1 {
+  animation-delay: 0s;
+}
+
+.intro-screen.fade-out .pillar.p2 {
+  animation-delay: 0.2s;
+}
+
+.intro-screen.fade-out .pillar.p3 {
+  animation-delay: 0.4s;
+}
+
+.intro-screen.fade-out .pillar.p4 {
+  animation-delay: 0.6s;
+}
+
+@keyframes pillarExit {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+/* ===================== LOGO ===================== */
+.logo-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeInLogo 1.2s ease forwards;
+
+}
+
+.logo-container img {
+  width: 80px;
+  height: auto;
+
+}
+
+.logo-name {
+  font-family: "GCEpicPro", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 2px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInText 1s ease forwards 0.4s;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLogo {
+  from {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Fade out logo before pillars exit */
+.intro-screen.fade-out .logo-container {
+  animation: logoExitUp 2s ease-in forwards;
+
+
+}
+
+@keyframes logoExitUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-150vh) scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* ===================== MAIN CONTENT ===================== */
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.fade-in {
+  animation: fadeInMain 1s ease forwards;
+}
+
+
+
+@keyframes fadeInMain {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}

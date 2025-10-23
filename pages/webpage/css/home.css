@@ -1,0 +1,456 @@
+/* ===================== HOME SECTION ===================== */
+.home {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: var(--white);
+}
+
+/* ===================== HERO TEXT ===================== */
+.hero-text {
+  margin-top: 100px;
+  font-size: var(--h1-pc);
+  line-height: 0.8;
+  font-family: 'GCEpicPro', sans-serif;
+  opacity: 0;
+}
+
+/* Animation: Hero text fades down */
+@keyframes fadeInDownHero {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-text.fade-in-down {
+  animation: fadeInDownHero 1.2s ease-out forwards;
+}
+
+/* ===================== CREDIT CARD MODEL ===================== */
+.credit-card-model {
+  position: absolute;
+  top: 370px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transform: translateX(-50%) translateY(0);
+  /* smooth motion */
+  z-index: 10;
+  opacity: 0;
+}
+
+/* Animation: Card fades in upward */
+@keyframes fadeInUpCard {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.credit-card-model.fade-in-up {
+  animation: fadeInUpCard 1.2s ease-out forwards;
+}
+
+/* Shadow animation for card */
+@keyframes fadeInShadow {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.85;
+  }
+}
+
+.flip-card.show-shadow::after {
+  animation: fadeInShadow 0.8s ease forwards 0.3s;
+}
+
+/* ===================== SUBTEXT BOX ===================== */
+.subtext-box {
+  width: 300px;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  position: absolute;
+  margin-top: 110px;
+  left: 3.7rem;
+  opacity: 0;
+  font-family: "Aileron", sans-serif;
+}
+
+.subtext-box p {
+  width: 100%;
+  text-align: left;
+  letter-spacing: 2px;
+  font-size: var(--normal);
+  color: var(--black);
+  line-height: 1.3rem;
+  margin: 0;
+}
+
+/* Animation: Subtext fades from left */
+@keyframes fadeInLeftSubtext {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.subtext-box.fade-in-left {
+  animation: fadeInLeftSubtext 1.2s ease-out forwards;
+}
+
+/* ===================== CTA BOX ===================== */
+.cta-box {
+  width: 300px;
+  height: 160px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  background: transparent;
+  position: absolute;
+  margin-top: 110px;
+  right: 3.7rem;
+  opacity: 0;
+}
+
+/* Animation: CTA fades from right */
+@keyframes fadeInRightCTA {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.cta-box.fade-in-right {
+  animation: fadeInRightCTA 1.2s ease-out forwards;
+}
+
+/* ===================== CTA BUTTON ===================== */
+/* From Uiverse.io by R1SH4BH81 */
+.cssbuttonsIoButton {
+  margin-top: 1rem;
+  width: 250px;
+  height: 2.8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: var(--white);
+  color: var(--black);
+  border: 2px solid var(--black);
+  font-size: 17px;
+  font-family: "Aileron", sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  border-radius: 2rem;
+  padding: 0 3.3em 0 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.btn-text {
+  margin-left: 1em;
+}
+
+/* Icon inside button */
+.cssbuttonsIoButton .icon {
+  position: absolute;
+  right: 0.3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 2rem;
+  background: var(--black);
+  transition: background 0.5s ease-out, transform 0.3s ease-out;
+}
+
+/* Hover effects */
+.cssbuttonsIoButton:hover {
+  background-color: var(--black);
+  color: var(--white);
+  border: 1px solid var(--black);
+}
+
+.cssbuttonsIoButton .icon svg {
+  width: 1.1em;
+  color: var(--white);
+  transition: transform 0.3s ease-out;
+}
+
+.cssbuttonsIoButton:hover .icon {
+  background: var(--white);
+}
+
+.cssbuttonsIoButton:hover .icon svg {
+  transform: translateX(0.1em) rotate(-25deg);
+  color: var(--black);
+}
+
+.cssbuttonsIoButton:active .icon {
+  transform: scale(0.95);
+}
+
+/* ===================== CREDIT CARD ===================== */
+.flip-card {
+  background-color: transparent;
+  width: 240px;
+  height: 154px;
+  perspective: 1000px;
+  color: var(--white);
+  transform: rotate(15deg);
+  position: relative;
+}
+
+/* Shadow */
+.flip-card::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 105%;
+  transform: translateX(-50%) scaleX(1.1) rotate(165deg);
+  width: 100%;
+  height: 20px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.25) 70%, rgba(0, 0, 0, 0) 100%);
+  filter: blur(10px);
+  opacity: 0;
+  z-index: -1;
+  margin: -100px;
+  animation-fill-mode: forwards;
+}
+
+/* Card inner flip behavior */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Card faces */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  backface-visibility: hidden;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 2px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset;
+  background-color: var(--black);
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Card elements */
+.heading_8264 {
+  position: absolute;
+  top: 1rem;
+  left: 1.3rem;
+  font-size: 1rem;
+  font-family: "GCEpicPro", sans-serif;
+}
+
+.logo {
+  position: absolute;
+  top: 6.8em;
+  left: 11.7em;
+}
+
+.chip {
+  position: absolute;
+  top: 3em;
+  left: 1.5em;
+}
+
+.name {
+  position: absolute;
+  top: 16.1em;
+  left: 2em;
+  font-size: 0.5em;
+  font-weight: bold;
+  font-family: "Aileron", sans-serif;
+}
+
+.strip {
+  position: absolute;
+  width: 15em;
+  height: 1.5em;
+  top: 2.4em;
+  background: repeating-linear-gradient(45deg, #303030, #303030 10px, #202020 10px, #202020 20px);
+}
+
+.mstrip,
+.sstrip {
+  position: absolute;
+  background-color: var(--white);
+  height: 0.8em;
+  border-radius: 2.5px;
+}
+
+.mstrip {
+  width: 8em;
+  top: 5em;
+  left: 0.8em;
+}
+
+.sstrip {
+  width: 4.1em;
+  top: 5em;
+  left: 10em;
+}
+
+.code {
+  font-weight: bold;
+  text-align: center;
+  margin: 0.2em;
+  color: var(--black);
+}
+
+.title {
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1200px) {
+  .hero-text {
+    font-size: 60px;
+  }
+
+  .credit-card-model {
+    top: 310px;
+  }
+
+  .subtext-box,
+  .cta-box {
+    width: 250px;
+  }
+
+  .subtext-box {
+    left: 4rem;
+  }
+
+  .cta-box {
+    right: 4rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .hero-text {
+    font-size: 55px;
+  }
+
+  .credit-card-model {
+    top: 290px;
+  }
+
+  .subtext-box {
+    left: 5rem;
+  }
+
+  .cta-box {
+    right: 5rem;
+  }
+}
+
+@media (max-width: 920px) {
+  .hero-text {
+    font-size: 50px;
+  }
+
+  .credit-card-model {
+    top: 280px;
+  }
+
+  .subtext-box,
+  .cta-box {
+    width: 200px;
+  }
+
+  .subtext-box {
+    left: 4rem;
+  }
+
+  .cta-box {
+    right: 4rem;
+  }
+}
+
+@media (max-width: 840px) {
+  .hero-text {
+    font-size: 48px;
+  }
+
+  .credit-card-model {
+    top: 280px;
+  }
+
+  .subtext-box,
+  .cta-box {
+    width: 200px;
+  }
+
+  .subtext-box {
+    left: 4rem;
+  }
+
+  .cta-box {
+    right: 4rem;
+  }
+}
+
+@media (max-width: 810px) {
+  .credit-card-model {
+    top: 350px;
+  }
+
+  .subtext-box,
+  .cta-box {
+    width: 190px;
+  }
+
+  .subtext-box {
+    left: 4rem;
+  }
+
+  .cta-box {
+    right: 4rem;
+  }
+}
