@@ -1,10 +1,11 @@
 /* ===================== Font Setup ===================== */
 @font-face {
   font-family: 'GCEpicPro';
-  src: url('../../../assets/fonts/gc-epicpro.woff2') format('woff2'),
-    url('../../../assets/fonts/gc-epicpro.otf') format('opentype');
+  src: url('https://hikarikurohoshi-jpg.github.io/Expense-Tracker/assets/fonts/gc-epicpro.woff2') format('woff2'),
+       url('https://hikarikurohoshi-jpg.github.io/Expense-Tracker/assets/fonts/gc-epicpro.otf') format('opentype');
   font-display: swap;
 }
+
 
 /* ===================== Root Variables ===================== */
 :root {
