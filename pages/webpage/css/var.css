@@ -1,9 +1,9 @@
 /* ===================== Font Setup ===================== */
 @font-face {
   font-family: 'GCEpicPro';
-  src: url('/assets/fonts/gc-epicpro.woff2') format('opentype');
+  src: url('../../../assets/fonts/gc-epicpro.woff2') format('woff2'),
+    url('../../../assets/fonts/gc-epicpro.otf') format('opentype');
   font-display: swap;
-  /* Better loading performance */
 }
 
 /* ===================== Root Variables ===================== */
