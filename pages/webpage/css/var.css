@@ -1,20 +1,17 @@
 /* ===================== Font Setup ===================== */
 @font-face {
   font-family: 'GCEpicPro';
-  src: url('https://hikarikurohoshi-jpg.github.io/Expense-Tracker/assets/fonts/gc-epicpro.woff2') format('woff2'),
-       url('https://hikarikurohoshi-jpg.github.io/Expense-Tracker/assets/fonts/gc-epicpro.otf') format('opentype');
+  src: url('../../../assets/fonts/gc-epicpro.woff2') format('woff2'),
+    url('../../../assets/fonts/gc-epicpro.otf') format('opentype');
   font-display: swap;
 }
 
-<<<<<<< HEAD
 @font-face {
   font-family: 'GCEpicPro';
   src: url('https://hikarikurohoshi-jpg.github.io/Expense-Tracker/assets/fonts/gc-epicpro.woff2') format('woff2'),
     url('https://hikarikurohoshi-jpg.github.io/Expense-Tracker/assets/fonts/gc-epicpro.otf') format('opentype');
   font-display: swap;
 }
-=======
->>>>>>> 2265fa451081fb1ee60f3f37f96d243e73816d89
 
 /* ===================== Root Variables ===================== */
 :root {
