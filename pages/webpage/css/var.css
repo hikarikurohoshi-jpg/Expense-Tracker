@@ -6,6 +6,13 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'GCEpicPro';
+  src: url('https://hikarikurohoshi-jpg.github.io/Expense-Tracker/assets/fonts/gc-epicpro.woff2') format('woff2'),
+    url('https://hikarikurohoshi-jpg.github.io/Expense-Tracker/assets/fonts/gc-epicpro.otf') format('opentype');
+  font-display: swap;
+}
+
 /* ===================== Root Variables ===================== */
 :root {
   /* === Colors === */
@@ -75,7 +82,7 @@ a:hover {
   margin: 0 auto;
   position: relative;
   text-align: center;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* border: 1px solid black; */
 }
 
