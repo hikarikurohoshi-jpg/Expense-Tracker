@@ -1,0 +1,134 @@
+.footer {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 3rem 1.5rem 1rem;
+  font-family: 'Aileron', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-brand {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.footer-logo img {
+  width: 36px;
+  height: 36px;
+}
+
+.footer-logo-name {
+  font-family: 'GCEpicPro', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+
+.footer-tagline {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+.footer-links,
+.footer-contact {
+  flex: 1;
+  min-width: 180px;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+  font-size: 1rem;
+  color: var(--blue);
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.footer-links ul,
+.social-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--white);
+  opacity: 0.8;
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--blue);
+  opacity: 1;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.social-links a {
+  color: var(--white);
+  opacity: 0.8;
+  transition: 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--blue);
+  opacity: 1;
+}
+
+.email {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-brand,
+  .footer-links,
+  .footer-contact {
+    max-width: 350px;
+  }
+
+  .footer-tagline {
+    max-width: 100%;
+  }
+}

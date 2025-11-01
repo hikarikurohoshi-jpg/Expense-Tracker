@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: flex-start;
   background: var(--white);
+
 }
 
 /* ===================== HERO TEXT ===================== */
@@ -35,7 +36,7 @@
 
 /* ===================== CREDIT CARD MODEL ===================== */
 .credit-card-model {
-  position: absolute;
+  position: fixed;
   top: 370px;
   left: 50%;
   transform: translate(-50%, 0);

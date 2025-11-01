@@ -166,9 +166,9 @@ function setupScrollAnimations() {
   gsap.set(creditCard, {
     position: "absolute",
     left: "50%",
-    top: "70%",
+    top: "370px", // or whatever vertical offset looks right
     xPercent: -50,
-    yPercent: -50,
+    yPercent: 0,
   });
 
   console.debug("Before tween:", {
@@ -178,8 +178,8 @@ function setupScrollAnimations() {
 
   // === SCROLL ANIMATION ===
   const tween = gsap.to(creditCard, {
-    y: "60vh",
-    rotate: 10,
+    y: 370, // pixels instead of vh
+    rotate: -15,
     scale: 1.1,
     ease: "none",
     scrollTrigger: {

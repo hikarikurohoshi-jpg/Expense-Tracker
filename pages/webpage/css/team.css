@@ -1,0 +1,240 @@
+.team {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CENTER DIV */
+.center-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 500px;
+  /* border: 1px solid #333; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.black-circle {
+  width: 550px;
+  height: 550px;
+  background-color: var(--black);
+  border-radius: 50%;
+}
+
+.circle-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* makes it fill nicely */
+  border-radius: 50%;
+  transition: transform 0.4s ease;
+}
+
+/* TOP LEFT */
+.top-left {
+  position: absolute;
+  /* border: 1px solid black; */
+  width: 360px;
+  font-size: var(--h3-pc);
+  text-align: left;
+  font-family: 'GCEpicPro', sans-serif;
+  line-height: 0.8;
+}
+
+/* TOP RIGHT */
+.top-right {
+  position: absolute;
+  right: 2rem;
+  /* border: 1px solid black; */
+  width: 200px;
+  text-align: right;
+  font-family: "Aileron", sans-serif;
+  letter-spacing: 2px;
+  font-size: var(--normal);
+  color: var(--black);
+  line-height: 1.3rem;
+
+
+}
+
+/* BOTTOM LEFT */
+.bottom-left {
+  position: absolute;
+  bottom: 2rem;
+  /* border: 1px solid #333; */
+  width: 300px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  /* ✅ stack nickname above fullname */
+  justify-content: center;
+  /* ✅ center vertically within the box */
+  align-items: flex-start;
+  /* ✅ align text to the left */
+  text-align: left;
+
+  /* ✅ add space from border */
+}
+
+.bottom-left .nickname {
+  font-weight: bold;
+  font-size: 2rem;
+  letter-spacing: 5px;
+  font-family: 'GCEpicPro', sans-serif;
+
+}
+
+.bottom-left .fullname p {
+  font-size: 14px;
+  color: var(--black);
+  line-height: 1.5rem;
+  font-family: "Aileron", sans-serif;
+  letter-spacing: 2px;
+}
+
+
+/* BOTTOM RIGHT */
+.bottom-right {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  /* border: 1px solid #333; */
+  width: 220px;
+  height: 80px;
+  display: flex;
+  justify-content: flex-end;
+  /* ✅ move content to the right */
+  align-items: center;
+  /* ✅ vertically center content */
+
+}
+
+
+
+
+
+
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 180px;
+  /* border: 1px solid #333; */
+}
+
+.button {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+/* Border ring */
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  border: 2px solid var(--black);
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* Fill background */
+.button::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: transparent;
+  transition: background-color 0.4s ease, opacity 0.2s ease;
+  z-index: 0;
+}
+
+/* Hover fill effect */
+.button:hover::after {
+  background: var(--black);
+}
+
+.button:hover::before {
+  opacity: 0;
+}
+
+/* Arrow container */
+.button-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  /* keep above the background */
+  position: relative;
+}
+
+/* Arrow */
+.button-elem {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.4s ease;
+}
+
+.button-elem svg {
+  width: 100%;
+  height: 100%;
+}
+
+.button-elem svg path {
+  fill: var(--black);
+  transition: fill 0.4s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* ✅ Hover: arrow turns white, no movement */
+.button:hover .button-elem svg path {
+  fill: var(--white);
+}
+
+/* LEFT button */
+.button-left .button-elem {
+  transform: rotate(180deg);
+}
+
+/* RIGHT button */
+.button-right .button-elem {
+  transform: rotate(0deg);
+}
+
+/* Click press effect */
+.button:active::after {
+  opacity: 0.7;
+}
+
+.button:active .button-elem svg path {
+  opacity: 0.8;
+}
+
+/* Remove focus outline */
+.button:focus,
+.button:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.circle-image,
+.bottom-left .nickname,
+.bottom-left .fullname p {
+  transition: opacity 0.3s ease;
+}
