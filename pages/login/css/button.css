@@ -1,0 +1,76 @@
+/* ---------- Back Button Positioning ---------- */
+.back-btn-wrapper {
+  position: absolute;
+  top: 20px;
+  left: 100px;
+  z-index: 10;
+}
+
+.back-btn-wrapper .cta {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+
+.cta {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  font-family: inherit;
+}
+
+.cta span {
+  padding-bottom: 1px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: black;
+}
+
+/* ========== Underline Animation ========== */
+.hover-underline-animation {
+  position: relative;
+  color: black;
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* ========== Back Button (Arrow Left) ========== */
+.cta-back svg {
+  transform: scaleX(-1) translateX(8px);
+  /* flip & position */
+  transition: all 0.3s ease;
+  margin-right: 15px;
+  /* space between arrow and text */
+}
+
+.cta-back:hover svg {
+  transform: scaleX(-1) translateX(0);
+}
+
+.cta-back:active svg {
+  transform: scaleX(-1) scale(0.9);
+}

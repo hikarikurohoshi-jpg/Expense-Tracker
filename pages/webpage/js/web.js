@@ -1,3 +1,16 @@
+// Prevents the browser from restoring the scroll position
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+// Always scroll to the top/home on refresh
+window.addEventListener("load", function () {
+  window.scrollTo(0, 0);
+  // Optional: Force immediate scroll top without animation
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.getElementById("main-nav");
   const hamburger = document.getElementById("hamburger");
@@ -64,7 +77,7 @@ window.addEventListener("load", () => {
   const subtextBox = document.querySelector(".subtext-box");
   const ctaBox = document.querySelector(".cta-box");
   const creditCard = document.querySelector(".credit-card-model");
-  const flipCard = document.querySelector(".flip-card");
+  const flipCard = document.querySelector(".card-shadow");
 
   function revealMainAndStart() {
     if (intro) {
@@ -98,7 +111,12 @@ window.addEventListener("load", () => {
           creditCard.style.scale = "none";
           console.debug("✅ creditCard CSS transform cleared for GSAP");
 
-          if (flipCard) flipCard.classList.add("show-shadow");
+          if (flipCard) {
+            flipCard.classList.add("show-shadow");
+          }
+          if (document.querySelector(".card-shadow")) {
+            document.querySelector(".card-shadow").classList.add("show-shadow");
+          }
 
           // Run other intro fades
           if (navbar) {
@@ -178,9 +196,9 @@ function setupScrollAnimations() {
 
   // === SCROLL ANIMATION ===
   const tween = gsap.to(creditCard, {
-    y: 370, // pixels instead of vh
+    y: 450, // pixels instead of vh
     rotate: -15,
-    scale: 1.1,
+    scale: 1.5,
     ease: "none",
     scrollTrigger: {
       trigger: home,
@@ -188,7 +206,7 @@ function setupScrollAnimations() {
       endTrigger: about,
       end: "top top",
       scrub: true,
-      markers: true,
+      markers: false,
       onEnter: () => console.log("ScrollTrigger → entered"),
       onLeave: () => console.log("ScrollTrigger → left"),
       onEnterBack: () => console.log("ScrollTrigger → entered back"),
@@ -215,3 +233,40 @@ function setupScrollAnimations() {
     }
   }, 1000);
 }
+
+// ==========================
+// CARD SHADOW HIDES WHEN SCROLLING DOWN
+// AND REAPPEARS ONLY AT THE TOP
+// ==========================
+(function () {
+  const shadow = document.querySelector(".card-shadow");
+  if (!shadow) return console.warn("No .card-shadow element found!");
+
+  shadow.style.opacity = "00";
+  shadow.style.transition = "opacity 0.4s ease";
+
+  console.log("✅ Card shadow script initialized.");
+
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY || window.pageYOffset;
+    console.log("Scroll position:", scrollY);
+
+    if (scrollY > 20) {
+      if (shadow.style.opacity !== "0") {
+        console.log("🕶️ Hiding shadow...");
+        // Remove possible animation classes that reapply shadow
+        shadow.classList.remove("show-shadow");
+        // Force opacity with !important behavior
+        shadow.style.setProperty("opacity", "0", "important");
+      }
+    } else {
+      if (shadow.style.opacity !== "0.85") {
+        console.log("💡 Showing shadow...");
+        shadow.style.setProperty("opacity", "0.85", "important");
+      }
+    }
+  });
+})();
+
+//optional: add a scroll entrance animation in the about page and team page
+// also in the scroll fade out animation in every pages

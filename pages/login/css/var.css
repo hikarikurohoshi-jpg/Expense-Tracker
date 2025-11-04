@@ -1,0 +1,136 @@
+/* ===================== Font Setup ===================== */
+@font-face {
+  font-family: 'GCEpicPro';
+  src: url('../../../assets/fonts/gc-epicpro.woff2') format('woff2'),
+    url('../../../assets/fonts/gc-epicpro.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GCEpicPro';
+  src: url('https://hikarikurohoshi-jpg.github.io/Expense-Tracker/assets/fonts/gc-epicpro.woff2') format('woff2'),
+    url('https://hikarikurohoshi-jpg.github.io/Expense-Tracker/assets/fonts/gc-epicpro.otf') format('opentype');
+  font-display: swap;
+}
+
+:root {
+  --bg-gray: #f2f8fc;
+  --blue: #2c53c9;
+  --white: #fffefd;
+  --black: #12120f;
+  --muted: #666;
+  --radius: 10px;
+  --max-width: 400px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Aileron', sans-serif;
+  background: var(--white);
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  padding: 1rem 2rem;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+.toast-container {
+  position: fixed;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast-container.top-right {
+  top: 20px;
+  right: 20px;
+}
+
+.toast-container.top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.toast-container.bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+.toast-container.bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+/* ---------- Back Button Positioning ---------- */
+.back-btn-wrapper {
+  position: absolute;
+  top: 20px;
+  left: 100px;
+  z-index: 10;
+}
+
+.back-btn-wrapper .cta {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+
+.hover-underline-animation {
+  position: relative;
+  color: black;
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* ========== Back Button (Arrow Left) ========== */
+.cta-back svg {
+  transform: scaleX(-1) translateX(8px);
+  /* flip & position */
+  transition: all 0.3s ease;
+  margin-right: 15px;
+  /* space between arrow and text */
+}
+
+.cta-back:hover svg {
+  transform: scaleX(-1) translateX(0);
+}
+
+.cta-back:active svg {
+  transform: scaleX(-1) scale(0.9);
+}

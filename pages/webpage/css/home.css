@@ -39,10 +39,12 @@
   position: fixed;
   top: 370px;
   left: 50%;
-  transform: translate(-50%, 0);
-  transform: translateX(-50%) translateY(0);
-  /* smooth motion */
+  transform: translateX(-50%);
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
 }
 
@@ -76,6 +78,13 @@
 
 .flip-card.show-shadow::after {
   animation: fadeInShadow 0.8s ease forwards 0.3s;
+}
+
+
+
+.flip-card::after {
+  opacity: 0;
+  /* Default hidden */
 }
 
 /* ===================== SUBTEXT BOX ===================== */
@@ -219,14 +228,69 @@
 }
 
 /* ===================== CREDIT CARD ===================== */
+
+/* ===================== CARD SHADOW FADE IN ===================== */
+@keyframes fadeInShadow {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.85;
+  }
+}
+
+/* When JS adds .show-shadow, it simply fades in */
+.card-shadow.show-shadow {
+  animation: fadeInShadow 1s ease-out forwards;
+}
+
+/* Keep hover effect subtle */
+.credit-card-model:hover .card-shadow {
+  transform: scaleX(0.9);
+  transition: transform 0.4s ease;
+}
+
+
 .flip-card {
+  position: relative;
   background-color: transparent;
   width: 240px;
   height: 154px;
   perspective: 1000px;
   color: var(--white);
   transform: rotate(15deg);
-  position: relative;
+  z-index: 2;
+}
+
+.card-shadow {
+
+  margin-top: 50px;
+  /* Brings it closer to the card */
+  width: 230px;
+  height: 50px;
+  background: radial-gradient(ellipse at center,
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0.05) 70%,
+      transparent 100%);
+  border-radius: 50%;
+  filter: blur(6px);
+  opacity: 1;
+  transform: rotateX(5deg) scaleX(1.3) scaleY(0.6);
+  z-index: 1;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0;
+
+}
+
+.card-shadow.hidden {
+  opacity: 0 !important;
+  transition: opacity 0.3s ease-out;
+}
+
+/* Hover effect for realism */
+.credit-card-model:hover .card-shadow {
+  transform: rotateX(60deg) rotateZ(180deg) scaleX(1.2);
 }
 
 /* Shadow */
@@ -236,15 +300,16 @@
   bottom: 10px;
   left: 105%;
   transform: translateX(-50%) scaleX(1.1) rotate(165deg);
-  width: 100%;
+  /* width: 100%;
   height: 20px;
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.25) 70%, rgba(0, 0, 0, 0) 100%);
-  filter: blur(10px);
+  filter: blur(10px); */
   opacity: 0;
   z-index: -1;
   margin: -100px;
   animation-fill-mode: forwards;
 }
+
 
 /* Card inner flip behavior */
 .flip-card-inner {

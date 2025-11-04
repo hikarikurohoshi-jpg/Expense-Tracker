@@ -16,9 +16,14 @@ const teamMembers = [
     fullname: "Eulin, Merzielle Lorraine R.",
   },
   {
-    image: "assets/team_pic/rhiane.png",
-    nickname: "RHIANE",
-    fullname: "R. Dela Cruz",
+    image: "assets/team_pic/jm.png",
+    nickname: "JM",
+    fullname: "Mandawe, Jemboy V.",
+  },
+  {
+    image: "assets/team_pic/mei.png",
+    nickname: "MEI",
+    fullname: "Fesico, Jayvhie Mae L.",
   },
 ];
 

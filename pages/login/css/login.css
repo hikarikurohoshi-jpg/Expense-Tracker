@@ -1,0 +1,423 @@
+/* body / log in panel */
+#body .container {
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+
+}
+
+.login-card {
+  background: var(--white);
+  padding: 32px 40px 40px 40px;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* header */
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.logo-img {
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-logo {
+  height: 100%;
+  object-fit: contain;
+}
+
+.login-heading {
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--black);
+  font-family: 'GCEpicPro', sans-serif;
+}
+
+.login-subheading {
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subtext {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+  text-align: center;
+}
+
+/* Text fields */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.field label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.field input {
+  height: 44px;
+  width: 100%;
+  padding: 0 0.75rem;
+  font-size: 13px;
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
+}
+
+
+
+/* Forgot password */
+.forgot {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+.btn {
+  height: 48px;
+  width: 100%;
+  border-radius: var(--radius);
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-login {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn-login:hover {
+  opacity: 0.9;
+}
+
+/* Divider "or" */
+.divider {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 4px 0;
+  position: relative;
+  height: 24px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #ddd;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+/* Google Button */
+.btn-google {
+  background: var(--white);
+  border: 1px solid #ddd;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 500;
+}
+
+.btn-google:hover {
+  background: #f7f7f7;
+}
+
+/* Sign up link */
+.signup-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+  gap: 8px;
+}
+
+
+.signup-link {
+  color: var(--black);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Icon fields ---------- */
+.icon-field {
+  position: relative;
+}
+
+.icon-field input {
+  padding-left: 40px;
+  /* space for left icon */
+  padding-right: 40px;
+  /* space for toggle eye */
+}
+
+.icon-field i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+}
+
+.icon-field i[data-lucide="mail"],
+.icon-field i[data-lucide="lock"] {
+  left: 12px;
+  pointer-events: none;
+  /* icons on left are not clickable */
+}
+
+.icon-field .toggle-password {
+  right: 12px;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+/* Input with icons inside */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
+  padding: 0 0.5rem;
+  height: 44px;
+  background: var(--white);
+}
+
+.input-wrapper input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  padding: 0 0.5rem;
+  background: transparent;
+}
+
+/* ---------- icons inside inputs ---------- */
+.input-wrapper svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--muted);
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+/* Keep muted color even on focus */
+.input-wrapper:focus-within svg {
+  stroke: var(--muted);
+  color: var(--muted);
+}
+
+/* Password toggle icon (eye) */
+.toggle-password {
+  cursor: pointer;
+  stroke: var(--muted);
+  color: var(--muted);
+}
+
+/* Remember me */
+.remember {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  gap: 8px;
+  height: 20px;
+}
+
+.remember label {
+  display: flex;
+  align-items: center;
+  user-select: none;
+  height: 100%;
+  gap: 8px;
+}
+
+.remember input[type="checkbox"] {
+  height: 16px;
+  width: 16px;
+  accent-color: var(--black);
+  flex-shrink: 0;
+}
+
+
+
+/* ---------- Modal ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 18, 15, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: var(--white);
+  padding: 24px 32px;
+  border-radius: var(--radius);
+  text-align: center;
+  width: 280px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-icon {
+  width: 48px;
+  height: 48px;
+  stroke: var(--black);
+  margin-bottom: 12px;
+}
+
+.modal-content p {
+  font-size: 1rem;
+  color: var(--black);
+  margin: 0;
+  font-weight: 600;
+}
+
+
+.error-hint {
+  color: #e63946;
+  font-size: 13px;
+  margin-top: 4px;
+  visibility: hidden;
+  /* Default: hidden */
+}
+
+.error-hint.visible {
+  visibility: visible;
+}
+
+.cta {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  font-family: inherit;
+}
+
+.cta span {
+  padding-bottom: 1px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: black;
+}
+
+/* ========== Underline Animation ========== */
+/* ---------- Back Button Positioning ---------- */
+.back-btn-wrapper {
+  position: absolute;
+  top: 20px;
+  left: 100px;
+  z-index: 10;
+}
+
+.back-btn-wrapper .cta {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+
+.hover-underline-animation {
+  position: relative;
+  color: black;
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* ========== Back Button (Arrow Left) ========== */
+.cta-back svg {
+  transform: scaleX(-1) translateX(8px);
+  /* flip & position */
+  transition: all 0.3s ease;
+  margin-right: 15px;
+  /* space between arrow and text */
+}
+
+.cta-back:hover svg {
+  transform: scaleX(-1) translateX(0);
+}
+
+.cta-back:active svg {
+  transform: scaleX(-1) scale(0.9);
+}
