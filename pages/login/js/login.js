@@ -78,7 +78,8 @@ loginBtn.addEventListener("click", async () => {
 
     // Redirect after short delay (allow toast to show)
     setTimeout(() => {
-      window.location.href = "/pages/dashboard/";
+      window.location.href =
+        "/Expense-Tracker-FYNIX/pages/dashboard/dashboard.html";
     }, 2000);
   } catch (err) {
     console.error("Firebase Login Error:", err); // Debug log
@@ -156,7 +157,8 @@ document.querySelector(".btn-google").addEventListener("click", async () => {
 
     // Delay redirect to allow toast
     setTimeout(() => {
-      window.location.href = "/pages/dashboard/";
+      window.location.href =
+        "/Expense-Tracker-FYNIX/pages/dashboard/dashboard.html";
     }, 2000);
   } catch (err) {
     showModal("error", err.message);

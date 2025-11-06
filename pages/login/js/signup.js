@@ -114,55 +114,6 @@ function clearErrors() {
   });
 }
 
-// ============== Google Signup ==============
-googleSignupBtn.addEventListener("click", async () => {
-  try {
-    const provider = new GoogleAuthProvider();
-    const userCred = await signInWithPopup(auth, provider);
-    const user = userCred.user;
-
-    const payload = {
-      uid: user.uid,
-      email: user.email,
-      name: user.displayName || "",
-      profile_photo: user.photoURL || "",
-    };
-
-    console.log("Sending Google signup data:", payload);
-
-    const response = await fetch("./api/save_user.php", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-
-    const data = await response.json();
-    if (data.status !== "ok") throw new Error(data.error || "Server error");
-
-    localStorage.setItem(
-      "toastMessage",
-      JSON.stringify({
-        message: "Welcome!",
-        subText: "Signed up successfully with Google.",
-      })
-    );
-
-    const { default: Toast } = await import("../component/toast.js");
-    const toast = new Toast({ position: "bottom-right" });
-    toast.show({
-      message: "Account Created!",
-      subText: "Redirecting to Dashboard...",
-    });
-
-    setTimeout(() => {
-      window.location.href = "/pages/dashboard/";
-    }, 2000);
-  } catch (err) {
-    console.error("Google signup error:", err);
-    alert(err.message);
-  }
-});
-
 // ============== Password Toggle ==============
 document.addEventListener("click", (e) => {
   const toggle = e.target.closest(".toggle-password");

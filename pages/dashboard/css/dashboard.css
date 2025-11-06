@@ -1,0 +1,66 @@
+/* ===================== BASE DASHBOARD LAYOUT ===================== */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  background: #fcf7f8;
+  overflow-y: auto;
+}
+
+.content-section {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.content-section.active {
+  display: block;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-family: 'GCEpicPro', sans-serif;
+  color: var(--text-color);
+}
+
+/* ===================== TABLES (Generic) ===================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+table th,
+table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+table th {
+  background: #f9f9f9;
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+table tr:hover {
+  background: #fafafa;
+}
+
+
+/* ===================== ANIMATIONS ===================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

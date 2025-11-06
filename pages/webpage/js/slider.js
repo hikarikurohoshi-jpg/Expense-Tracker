@@ -25,6 +25,36 @@ const teamMembers = [
     nickname: "MEI",
     fullname: "Fesico, Jayvhie Mae L.",
   },
+  {
+    image: "assets/team_pic/baki.png",
+    nickname: "BAKI",
+    fullname: "Tomentos, Adrian Baltazar",
+  },
+  {
+    image: "assets/team_pic/dis.png",
+    nickname: "DIS",
+    fullname: "Sobiacio, Disery L",
+  },
+  {
+    image: "assets/team_pic/eddie.png",
+    nickname: "EDDIE",
+    fullname: "Montes Jr, Eddie T.",
+  },
+  {
+    image: "assets/team_pic/tine.png",
+    nickname: "TINE",
+    fullname: "Rivera, Christine Marie",
+  },
+  {
+    image: "assets/team_pic/emmanuel.png",
+    nickname: "EMMANUEL",
+    fullname: "Abajar, Emmanuel John G.",
+  },
+  {
+    image: "assets/team_pic/yrrajh.png",
+    nickname: "YRRAJH",
+    fullname: "Acueza, Yrrajh R.",
+  },
 ];
 
 let currentIndex = 0;

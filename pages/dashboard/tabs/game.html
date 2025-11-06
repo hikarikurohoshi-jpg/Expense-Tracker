@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FYNIX — Expense Tetris</title>
+  <link rel="stylesheet" href="css/game.css" />
+</head>
+
+<body>
+  <div class="gameTab" style="display: none;">
+    <div class="wrap">
+      <div class="card gameCard">
+        <div class="titleRow" aria-hidden="false">
+          <div class="brand">
+            <div>
+              <h1>Expense Tetris</h1>
+              <p class="small">Move falling categories into matching budget columns. Arrow keys → left/right to move,
+                down
+                to drop.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="canvasWrap" style="position:relative">
+          <canvas id="gameCanvas" width="800" height="520" aria-label="Expense Tetris game canvas"></canvas>
+          <div id="overflow" class="overflowAnim">BUDGET OVERFLOW!</div>
+        </div>
+
+        <div class="controlsRow">
+          <div class="legend" id="legend"></div>
+          <div style="flex:1"></div>
+          <div style="opacity:0.85">Difficulty: <span id="difficultyLabel">Normal</span></div>
+        </div>
+      </div>
+
+      <aside class="card panel">
+        <div class="stat">
+          <h3>Score</h3>
+          <div class="big" id="scoreDisplay">0</div>
+        </div>
+        <div class="stat">
+          <h3>Lives</h3>
+          <div class="big" id="livesDisplay">3</div>
+        </div>
+        <div class="stat">
+          <h3>Level</h3>
+          <div class="big" id="levelDisplay">1</div>
+        </div>
+        <div class="stat">
+          <h3>High Score</h3>
+          <div class="big" id="highScoreDisplay">—</div>
+        </div>
+
+        <div>
+          <button id="startBtn" class="btn primary">Start</button>
+          <button id="pauseBtn" class="btn">Pause</button>
+          <button id="resetBtn" class="btn">Reset</button>
+        </div>
+
+        <div class="stat" style="margin-top:auto">
+          <h3>Budget Columns</h3>
+          <div id="columnsList" style="display:flex;flex-direction:column;gap:6px;margin-top:8px"></div>
+        </div>
+      </aside>
+    </div>
+
+
+  </div>
+  <script src="js/game.js"></script>
+</body>
+
+</html>

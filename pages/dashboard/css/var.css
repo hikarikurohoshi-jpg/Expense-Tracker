@@ -1,0 +1,79 @@
+/* ===================== Font Setup ===================== */
+@font-face {
+  font-family: 'GCEpicPro';
+  src: url('../../../assets/fonts/gc-epicpro.woff2') format('woff2'),
+    url('../../../assets/fonts/gc-epicpro.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GCEpicPro';
+  src: url('https://hikarikurohoshi-jpg.github.io/Expense-Tracker/assets/fonts/gc-epicpro.woff2') format('woff2'),
+    url('https://hikarikurohoshi-jpg.github.io/Expense-Tracker/assets/fonts/gc-epicpro.otf') format('opentype');
+  font-display: swap;
+}
+
+/* ===================== Root Variables ===================== */
+:root {
+  /* === Colors === */
+  --primary: #2c53c9;
+  --sidebar-bg: #fffefd;
+  --text-color: #12120f;
+  --muted: #7A918D;
+
+  --radius: 16px;
+
+  /* === Font Sizes === */
+  --small: 12px;
+  --normal: 14px;
+  --medium: 16px;
+  --large: 18px;
+
+  /* === Headings (Desktop) === */
+  --h1-pc: 70px;
+  --h2-pc: 56px;
+  --h3-pc: 32px;
+  --h4-pc: 20px;
+
+  /* === Headings (Tablet) === */
+  --h1-tb: 64px;
+  --h2-tb: 56px;
+
+  /* === Headings (Mobile) === */
+  --h1-cp: 44px;
+  --h2-cp: 32px;
+  --h3-cp: 28px;
+  --h4-cp: 18px;
+}
+
+
+/* ===================== Reset & Base ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Aileron', sans-serif;
+
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--blue);
+}

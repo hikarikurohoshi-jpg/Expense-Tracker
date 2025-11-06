@@ -1,0 +1,233 @@
+:root {
+  --radius: 18px;
+  --accent: #4a6cf7;
+  --accent-2: #6d89ff;
+  --panel-bg: #ffffff;
+  --panel-border: #e5e7eb;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  --text: #222;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0;
+  color: var(--text);
+
+}
+
+
+/* ✅ Game Tab */
+#gameTab {
+  width: 100%;
+  height: auto;
+  display: none;
+  /* hidden by default */
+}
+
+#gameTab.active {
+  display: block;
+}
+
+/* ✅ Main Layout */
+#gameTab .wrap {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  /* manual px sizes allowed */
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* ✅ Card Style */
+.card {
+  background: var(--panel-bg);
+  border-radius: var(--radius);
+  padding: 22px;
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ✅ Manual card sizing (you can change these px values) */
+.gameCard {
+  width: 800px;
+  height: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.panel {
+  width: 150px;
+  height: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ✅ Center the buttons in the right panel */
+.panel>div:nth-of-type(5) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* ✅ CENTER horizontally */
+  justify-content: center;
+  /* ✅ CENTER vertically */
+  gap: 10px;
+  /* spacing between buttons */
+  margin-top: 10px;
+}
+
+/* Title */
+.titleRow h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+p.small {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* ✅ Canvas Wrapper */
+.canvasWrap {
+  width: 100%;
+  flex: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
+/* ✅ Canvas */
+canvas#gameCanvas {
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(180deg, #f7f9fc, #f0f2f5);
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+/* ✅ Controls */
+.controlsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--panel-border);
+  background: #f8f9fd;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  background: #eef0fa;
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border: none;
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(74, 108, 247, 0.18);
+}
+
+/* ✅ Right Panel Stats */
+.stat {
+  background: #f7f8fc;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--panel-border);
+}
+
+.stat h3 {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+.stat .big {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* ✅ Legend */
+.legend {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.legend .item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: #f4f6fb;
+  border-radius: 8px;
+  border: 1px solid #e7e9ef;
+  font-size: 13px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+/* ✅ ✅ RESTORED ORIGINAL BUDGET OVERFLOW ANIMATION */
+.overflowAnim {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+  font-weight: 800;
+  opacity: 0;
+  transform: scale(0.98);
+
+  color: rgba(255, 80, 80, 0.9);
+
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.overflowAnim.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ✅ Mobile */
+@media (max-width: 980px) {
+  #gameTab .wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .gameCard {
+    width: 100% !important;
+    height: auto;
+  }
+
+  .panel {
+    width: 100% !important;
+    height: auto;
+  }
+
+  canvas#gameCanvas {
+    height: auto !important;
+    aspect-ratio: 800 / 520;
+  }
+}
